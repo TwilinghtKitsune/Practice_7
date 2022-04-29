@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Вечеринка</title>
+
+</head>
+<body>
+    <h2>Мы собираемся на захватывающую вечеринку.</h2>
+    <h3>И вы приглашены, нужно только заполнить форму</h3>
+    <br />
+    @using (Html.BeginForm("Form", "Home", FormMethod.Get))
+    {
+        <input type="submit" value="Перейти к форме" />
+    }
+    <br />
+    @using (Html.BeginForm("AllGuests", "Home", FormMethod.Get))
+    {
+        <input type="submit" value="Все гости" />
+    }
+</body>
+</html>
+

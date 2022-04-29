@@ -1,0 +1,50 @@
+﻿@model IEnumerable <Practice_7.Models.Guests>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h3>Гости</h3>
+        <table style="width: 50%; border: 1px solid black;">
+            <tr class="header">
+                <td><p>Имя</p></td>
+                <td><p>Email</p></td>
+                <td><p>Телефон</p></td>
+                <td><p>Ответ</p></td>
+            </tr>
+            @foreach (Practice_7.Models.Guests g in Model)
+            {
+                <tr>
+                    <td><p>@g.Name</p></td>
+                    <td><p>@g.Email</p></td>
+                    <td><p>@g.Phone</p></td>
+                    @if (@g.WillAttend)
+                    {
+                        @:<td><p>Да, конечно я буду</p></td>
+                    }
+                    else
+                    {
+                        @:<td><p>Нет, я не смогу</p></td>
+                    }
+                </tr>
+            }
+        </table>
+    </div>
+    <br />
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        <input type="submit" value="На главную" />
+    }
+</body>
+</html>
+
+
